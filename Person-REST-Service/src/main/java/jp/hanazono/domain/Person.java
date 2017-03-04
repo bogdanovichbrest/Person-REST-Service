@@ -12,6 +12,9 @@ public class Person {
 		this.lastname = lastname;
 		this.age = age;
 	}
+	public Person() {
+		
+	}
 	public Integer getId() {
 		return id;
 	}
