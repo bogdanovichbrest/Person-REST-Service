@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,10 +20,10 @@ public class PersonDAOImpl implements PersonDAO{
 	DriverManagerDataSource dataSource;
 	JdbcTemplate template;
 	
+	@PostConstruct
 	public void init()
 	{
-		template = new JdbcTemplate();
-		template.setDataSource(dataSource);
+		template = new JdbcTemplate(dataSource);
 	}
 	
 
