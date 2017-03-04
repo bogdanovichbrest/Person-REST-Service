@@ -9,9 +9,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import jp.hanazono.dao.PersonDAO;
+import jp.hanazono.dao.PersonDAOImpl;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="jp.hanazono")
+@ComponentScan(basePackages = "jp.hanazono")
 public class Config {
 
 	@Bean
@@ -30,13 +33,9 @@ public class Config {
 
 	}
 
-	//@Bean
-	//public UrlBasedViewResolver setupResolver() {
-		//UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-       // resolver.setPrefix("/pages/");
-       // resolver.setSuffix(".jsp");
-        //resolver.setViewClass(JstlView.class);
-		//return resolver;
-//	}
+	@Bean(name = "personDAO")
+	public PersonDAO personDAO() {
+		return new PersonDAOImpl();
+	}
 
 }
