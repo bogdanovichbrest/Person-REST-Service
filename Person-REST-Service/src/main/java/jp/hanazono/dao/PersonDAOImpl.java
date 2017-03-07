@@ -52,13 +52,13 @@ public class PersonDAOImpl implements PersonDAO{
 	}
 
 	public void deletePerson(Person person) {
-		template.execute("DELETE * FROM PERSON WHERE ID = " + person.getId());
+		template.execute("DELETE FROM PERSON WHERE ID = " + person.getId());
 		
 	}
 
 	public Person findByID(Integer id) {
 		
-		return template.query("SELECT * FROM PERSON WHERE ID = ", rowMapper).get(0);
+		return template.query("SELECT * FROM PERSON WHERE ID = "+id, rowMapper).get(0);
 	}
 
 	public List<Person> getAllPersons() {
